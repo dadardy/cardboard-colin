@@ -1,7 +1,4 @@
-# Cardboard Colin (beta)
-
-> **Beta:** the letterforms are still being refined, so there's no tagged release yet.
-> The files on `main` (and the jsDelivr `@main` links below) always point at the latest beta.
+# Cardboard Colin
 
 ![Cardboard Colin](specimen/hero.png)
 
@@ -42,11 +39,12 @@ compares it with Colin's original letters.
 
 ## Status
 
-Beta. Letterforms are still being refined; expect changes before 1.0.
+Version 2.0.0. Light, Regular and Bold; Latin capitals, small-cap lowercase, digits, punctuation and common accented letters.
 
 ## Install on your computer
 
-1. Download the [beta zip](https://dadardy.github.io/cardboard-colin/downloads/CardboardColin-beta.zip).
+1. Download [CardboardColin-v2.0.0.zip](https://dadardy.github.io/cardboard-colin/downloads/CardboardColin-v2.0.0.zip)
+   (also attached to the [v2.0.0 release](https://github.com/dadardy/cardboard-colin/releases/tag/v2.0.0)).
 2. Open `fonts/otf` (or `fonts/ttf`) and double-click each file, then click **Install**
    (macOS Font Book / Windows). On Linux, copy the files to `~/.local/share/fonts`.
 
@@ -55,7 +53,7 @@ Beta. Letterforms are still being refined; expect changes before 1.0.
 The fastest option is jsDelivr, which serves files straight from this repo:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dadardy/cardboard-colin@main/css/cardboard-colin.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dadardy/cardboard-colin@v2.0.0/css/cardboard-colin.css">
 <style>
   h1, .sign { font-family: "Cardboard Colin", sans-serif; font-weight: 700; }
 </style>
@@ -66,13 +64,13 @@ Or write the `@font-face` rules yourself:
 ```css
 @font-face {
   font-family: "Cardboard Colin";
-  src: url("https://cdn.jsdelivr.net/gh/dadardy/cardboard-colin@main/fonts/woff2/CardboardColin-Regular.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/gh/dadardy/cardboard-colin@v2.0.0/fonts/woff2/CardboardColin-Regular.woff2") format("woff2");
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
   font-family: "Cardboard Colin";
-  src: url("https://cdn.jsdelivr.net/gh/dadardy/cardboard-colin@main/fonts/woff2/CardboardColin-Bold.woff2") format("woff2");
+  src: url("https://cdn.jsdelivr.net/gh/dadardy/cardboard-colin@v2.0.0/fonts/woff2/CardboardColin-Bold.woff2") format("woff2");
   font-weight: 700;
   font-display: swap;
 }

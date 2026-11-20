@@ -7,7 +7,7 @@ CARD, INK, PAPER, MUTED = (201, 164, 115), (28, 26, 30), (250, 246, 238), (110, 
 W, ROW = 1600, 300
 im = Image.new("RGB", (W, 80 + 3 * (2 * ROW + 60)), PAPER); d = ImageDraw.Draw(im)
 F = lambda folder, wt, sz: ImageFont.truetype(f"{folder}/CardboardColin-{wt}.ttf", sz)
-d.text((40, 20), "Cardboard Colin: v1.1 (before) vs beta (after, zig-zag marker passes)", font=F(NEW, "Bold", 44), fill=INK)
+d.text((40, 20), "Cardboard Colin: v1.1 (before) vs v2.0 (after, zig-zag marker passes)", font=F(NEW, "Bold", 44), fill=INK)
 y = 90
 for wt in ["Light", "Regular", "Bold"]:
     for tag, folder in (("before", OLD), ("after", NEW)):

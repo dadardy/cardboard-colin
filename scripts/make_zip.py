@@ -1,7 +1,7 @@
-"""Write downloads/CardboardColin-beta.zip (fonts, CSS, licence, README)."""
+"""Write downloads/CardboardColin-v2.0.0.zip (fonts, CSS, licence, README)."""
 import zipfile, os
 os.makedirs("downloads", exist_ok=True)
-out = "downloads/CardboardColin-beta.zip"
+out = "downloads/CardboardColin-v2.0.0.zip"
 with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as z:
     for root in ["fonts", "css"]:
         for d, _, fs in sorted(os.walk(root)):
