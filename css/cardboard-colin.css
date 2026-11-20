@@ -1,0 +1,25 @@
+/* Cardboard Colin — SIL OFL 1.1 — https://github.com/dadardy/cardboard-colin */
+@font-face {
+  font-family: "Cardboard Colin";
+  src: url("../fonts/woff2/CardboardColin-Light.woff2") format("woff2"),
+       url("../fonts/ttf/CardboardColin-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cardboard Colin";
+  src: url("../fonts/woff2/CardboardColin-Regular.woff2") format("woff2"),
+       url("../fonts/ttf/CardboardColin-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Cardboard Colin";
+  src: url("../fonts/woff2/CardboardColin-Bold.woff2") format("woff2"),
+       url("../fonts/ttf/CardboardColin-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

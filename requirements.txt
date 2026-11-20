@@ -1,0 +1,8 @@
+fonttools[woff]>=4.50
+skia-pathops>=0.8
+potracer>=0.0.4
+opencv-python-headless>=4.8
+scikit-image>=0.26
+shapely>=2.0
+numpy>=1.26
+pillow>=10
