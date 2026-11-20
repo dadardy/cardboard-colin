@@ -5,5 +5,5 @@ fonts:
 specimen:
 	$(PY) scripts/specimen.py
 zip:
-	mkdir -p dist && rm -f dist/CardboardColin-v1.0.0.zip && zip -r dist/CardboardColin-v1.0.0.zip fonts OFL.txt README.md css
+	$(PY) scripts/make_zip.py
 .PHONY: all fonts specimen zip

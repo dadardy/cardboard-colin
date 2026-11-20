@@ -10,11 +10,11 @@
 <meta property="og:title" content="Cardboard Colin: a free hand-drawn marker font">
 <meta property="og:description" content="Grown from a single hand-drawn CLOSED sign. Light, Regular and Bold, free under the SIL OFL.">
 <meta property="og:url" content="https://dadardy.github.io/cardboard-colin/">
-<meta property="og:image" content="https://dadardy.github.io/cardboard-colin/assets/og-image.png?v=1.1.0">
+<meta property="og:image" content="https://dadardy.github.io/cardboard-colin/assets/og-image.png?v=beta2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://dadardy.github.io/cardboard-colin/assets/og-image.png?v=1.1.0">
+<meta name="twitter:image" content="https://dadardy.github.io/cardboard-colin/assets/og-image.png?v=beta2">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -62,81 +62,75 @@
   <p>Colin filled each letter with a marker going up and down, so the tops and bottoms of his strokes are scalloped while the stems stay smooth. Every letter, number and symbol in the font is inked the same way by a simulated marker, starting from Colin's own C, L, O, S, E and D. Lowercase is set as slightly smaller capitals.</p>
 </section>
 
-<section id="try">
-  <h2>Make a sign</h2>
-  <p class="sub">Type it, style it, then print it or download it. Everything happens in your browser.</p>
-  <div class="maker">
-    <div class="maker-controls">
-      <label class="field full">
-        <span class="lbl">Your text</span>
-        <textarea id="signtext" rows="3" spellcheck="false" aria-label="Sign text">Sorry, we're
+<section id="try" class="try-wide">
+  <div class="try-head">
+    <h2>Make a sign</h2>
+    <p class="sub">Click the cardboard and type. Drag the edges or corners to resize the sign, and the words reflow to fit. Then print it or download it. Everything happens in your browser.</p>
+  </div>
+  <div class="signbar" role="toolbar" aria-label="Sign options">
+    <div class="presets"><span>Try:</span>
+      <button data-text="Sorry, we're&#10;CLOSED!&#10;Back at 3:30">Closed</button>
+      <button data-text="LEMONADE&#10;50¢">Lemonade</button>
+      <button data-text="GARAGE SALE&#10;Saturday 9-2">Garage sale</button>
+      <button data-text="WET PAINT!">Wet paint</button>
+      <button data-text="Back in 5 minutes">Back soon</button>
+    </div>
+    <div class="barrow">
+      <div class="seg" role="group" aria-label="Weight"><button data-w="Light">Light</button><button data-w="Regular" class="on">Regular</button><button data-w="Bold">Bold</button></div>
+      <div class="seg" role="group" aria-label="Alignment"><button data-align="left" aria-label="Align left">Left</button><button data-align="center" class="on" aria-label="Align center">Center</button><button data-align="right" aria-label="Align right">Right</button></div>
+      <div class="colors">
+        <button class="swatch on" data-fg="#1c1a1e" data-bg="#c4a06c" data-tex="1" title="Cardboard" aria-label="Cardboard: black on cardboard"><i class="tex" style="color:#1c1a1e">Aa</i>Cardboard</button>
+        <button class="swatch" data-fg="#1c1a1e" data-bg="#ffffff" title="Paper" aria-label="Paper: black on white"><i style="background:#fff;color:#1c1a1e">Aa</i>Paper</button>
+        <button class="swatch" data-fg="#f3ead9" data-bg="#1c1a1e" title="Dark" aria-label="Dark: cream on black"><i style="background:#1c1a1e;color:#f3ead9">Aa</i>Dark</button>
+        <button class="swatch" data-fg="#c8102e" data-bg="#ffffff" title="Red on white" aria-label="Red on white"><i style="background:#fff;color:#c8102e">Aa</i>Red</button>
+        <button class="swatch" data-fg="#1c1a1e" data-bg="#ffd23f" title="Black on yellow" aria-label="Black on yellow"><i style="background:#ffd23f;color:#1c1a1e">Aa</i>Yellow</button>
+        <label class="picker">Text <input type="color" id="fg" value="#1c1a1e"></label>
+        <label class="picker">Background <input type="color" id="bg" value="#c4a06c"></label>
+      </div>
+    </div>
+    <div class="barrow">
+      <div class="sizes" role="group" aria-label="Sign size presets"><span class="lbl">Size</span>
+        <button data-preset="letter">Letter</button><button data-preset="a4">A4</button><button data-preset="tabloid">Tabloid</button><button data-preset="square">Square</button><button data-preset="banner">Banner</button>
+        <button id="rotate" title="Swap width and height" aria-label="Rotate sign">↻ Rotate</button>
+      </div>
+      <div class="dims"><label>W <input id="win" type="number" step="0.1" min="2" max="48" inputmode="decimal" aria-label="Width in inches"></label><span>×</span><label>H <input id="hin" type="number" step="0.1" min="2" max="48" inputmode="decimal" aria-label="Height in inches"></label><span>in</span>
+        <output id="dimsout" aria-live="polite"></output></div>
+      <div class="fitctl"><label class="check"><input type="checkbox" id="autofit" checked> Fit text to sign</label>
+        <label class="size" id="sizewrap">Text <input id="size" type="range" min="12" max="400" value="120" disabled aria-label="Text size in points"><output id="sizeval">auto</output></label></div>
+    </div>
+  </div>
+  <div id="stage" class="stage">
+    <div id="board" class="board tex">
+      <div id="sign" class="sign" contenteditable="plaintext-only" spellcheck="false" role="textbox" aria-multiline="true" aria-label="Sign text, editable">Sorry, we're
 CLOSED!
-Back at 3:30</textarea>
-      </label>
-      <div class="presets">
-        <span>Try:</span>
-        <button data-text="Sorry, we're&#10;CLOSED!&#10;Back at 3:30">Closed</button>
-        <button data-text="LEMONADE&#10;50¢">Lemonade</button>
-        <button data-text="GARAGE SALE&#10;Saturday 9-2">Garage sale</button>
-        <button data-text="WET PAINT!">Wet paint</button>
-        <button data-text="Back in&#10;5 minutes">Back soon</button>
-      </div>
-      <div class="field">
-        <span class="lbl">Weight</span>
-        <div class="seg" role="group" aria-label="Weight">
-          <button data-w="Light">Light</button><button data-w="Regular" class="on">Regular</button><button data-w="Bold">Bold</button>
-        </div>
-      </div>
-      <div class="field">
-        <span class="lbl">Align</span>
-        <div class="seg" role="group" aria-label="Alignment">
-          <button data-align="left" aria-label="Align left">Left</button><button data-align="center" class="on" aria-label="Align center">Center</button><button data-align="right" aria-label="Align right">Right</button>
-        </div>
-      </div>
-      <div class="field">
-        <span class="lbl">Colors</span>
-        <div class="colors">
-          <button class="swatch on" data-fg="#1c1a1e" data-bg="#ffffff" title="Paper" aria-label="Paper: black on white"><i style="background:#fff;color:#1c1a1e">Aa</i>Paper</button>
-          <button class="swatch" data-fg="#1c1a1e" data-bg="#c9a473" title="Cardboard" aria-label="Cardboard: black on brown"><i style="background:#c9a473;color:#1c1a1e">Aa</i>Cardboard</button>
-          <button class="swatch" data-fg="#f3ead9" data-bg="#1c1a1e" title="Dark" aria-label="Dark: cream on black"><i style="background:#1c1a1e;color:#f3ead9">Aa</i>Dark</button>
-          <button class="swatch" data-fg="#c8102e" data-bg="#ffffff" title="Red on white" aria-label="Red on white"><i style="background:#fff;color:#c8102e">Aa</i>Red</button>
-          <button class="swatch" data-fg="#1c1a1e" data-bg="#ffd23f" title="Black on yellow" aria-label="Black on yellow"><i style="background:#ffd23f;color:#1c1a1e">Aa</i>Yellow</button>
-          <label class="picker">Text <input type="color" id="fg" value="#1c1a1e"></label>
-          <label class="picker">Background <input type="color" id="bg" value="#ffffff"></label>
-        </div>
-      </div>
-      <div class="field">
-        <span class="lbl">Page</span>
-        <div class="pagepick">
-          <select id="page" aria-label="Page size">
-            <option value="letter" selected>Letter (8.5 × 11 in)</option>
-            <option value="a4">A4 (210 × 297 mm)</option>
-            <option value="tabloid">Tabloid (11 × 17 in)</option>
-            <option value="free">No page (just the text)</option>
-          </select>
-          <div class="seg" role="group" aria-label="Orientation" id="orient">
-            <button data-o="landscape" class="on">Landscape</button><button data-o="portrait">Portrait</button>
-          </div>
-        </div>
-      </div>
-      <div class="field" id="sizefield" hidden>
-        <span class="lbl">Size</span>
-        <label class="size"><input id="size" type="range" min="24" max="240" value="120"><output id="sizeval">120px</output></label>
-      </div>
-      <p class="hint" id="fitnote">The text grows to fill the page.</p>
+Back at 3:30</div>
+      <span class="h" data-h="n" aria-hidden="true"></span><span class="h" data-h="s" aria-hidden="true"></span>
+      <span class="h" data-h="w" aria-hidden="true"></span><span class="h" data-h="e" aria-hidden="true"></span>
+      <span class="h" data-h="nw" aria-hidden="true"></span><span class="h" data-h="ne" aria-hidden="true"></span>
+      <span class="h" data-h="sw" aria-hidden="true"></span>
+      <span class="h" data-h="se" tabindex="0" role="slider" aria-label="Resize sign (arrow keys)" aria-valuetext=""></span>
     </div>
-    <div class="maker-preview">
-      <div id="preview" class="preview" aria-live="polite"><div class="loading">Loading font…</div></div>
-      <div class="exports">
-        <button class="btn" data-export="print">Print</button>
-        <button class="btn" data-export="pdf">PDF</button>
-        <button class="btn" data-export="png">PNG</button>
-        <button class="btn" data-export="svg">SVG</button>
-        <button class="btn" data-export="docx">Word</button>
-      </div>
-      <label class="small check"><input type="checkbox" id="docxtext" checked> Word file: add an editable text page too (needs Cardboard Colin installed)</label>
-      <p class="small">PDF and SVG keep the letters as sharp vector shapes, so they work without the font installed. PNG is high resolution (300 dpi on a page).</p>
+  </div>
+  <div class="signout">
+    <div class="exports">
+      <button class="btn" data-export="print">Print</button>
+      <button class="btn" data-export="pdf">PDF</button>
+      <button class="btn" data-export="png">PNG</button>
+      <button class="btn" data-export="svg">SVG</button>
+      <button class="btn" data-export="docx">Word</button>
     </div>
+    <div class="outopts">
+      <label>Paper for Print, PDF and Word
+        <select id="paper" aria-label="Paper">
+          <option value="sign" selected>Same size as the sign</option>
+          <option value="letter">Fit on Letter (8.5 × 11 in)</option>
+          <option value="a4">Fit on A4</option>
+          <option value="tabloid">Fit on Tabloid (11 × 17 in)</option>
+        </select></label>
+      <label class="check"><input type="checkbox" id="texexport" checked> Cardboard texture in Print, PDF, PNG and Word</label>
+      <label class="check"><input type="checkbox" id="docxtext" checked> Word file: add an editable text page too (needs Cardboard Colin installed)</label>
+    </div>
+    <p class="small">PDF and SVG keep the letters as sharp vector shapes, so they work without the font installed (SVG uses a flat cardboard colour). PNG is 300 dpi.</p>
   </div>
 </section>
 
@@ -158,7 +152,7 @@ Back at 3:30</textarea>
 
 <section id="download">
   <h2>Download</h2>
-  <a class="btn huge" href="downloads/CardboardColin-beta.zip">Download everything <span class="sz">.zip · 0.5 MB</span></a>
+  <a class="btn huge" href="downloads/CardboardColin-beta.zip">Download everything <span class="sz">.zip · 0.4 MB</span></a>
   <p class="small">All three weights in OTF, TTF and WOFF2, plus the licence and a CSS file.</p>
   <div class="dl-grid">
     <div class="dl-card"><h3 style="font-weight:300">Light</h3>

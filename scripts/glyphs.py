@@ -8,6 +8,8 @@ Weights change the stroke width and nib size, never the texture recipe.
 """
 import os
 import numpy as np
+import cv2
+from skimage.morphology import skeletonize
 from render import (CAP, SMALLCAP, P, YT, YB, seed_for, extract_letters, place_mask,
                     norm_to_px, strokes_mask)
 from marker import ink, smooth_shape, offset_shape
@@ -19,11 +21,11 @@ LC_STROKE = 0.95
 
 # stroke width px (at 480 px cap height), nib diameter px, offset for Colin's letters
 WEIGHTS = {
-    "Light":   dict(s=28, nib=14, colin=-8),
-    "Regular": dict(s=42, nib=21, colin=1),
-    "Bold":    dict(s=60, nib=30, colin=10),
+    "Light":   dict(s=28, nib=18, colin=-8),
+    "Regular": dict(s=42, nib=25, colin=1),
+    "Bold":    dict(s=60, nib=31, colin=10),
 }
-HV = (0.86, 1.22)  # stem width factor, horizontal-stroke height factor
+HV = (0.95, 1.28)  # stem width factor, horizontal-stroke height factor
 # Colin's L was drawn noticeably heavier than his other letters: slim it to match.
 COLIN_EXTRA = {"L": -9}
 
@@ -79,7 +81,11 @@ def build_masks(weight="Regular", only=None, return_shapes=False):
         if want(ch) or ch in acc_bases:
             if ch in EXTRACTED:
                 m, iw = place_mask(ext[ch])
-                shape = offset_shape(smooth_shape(m), W["colin"] + COLIN_EXTRA.get(ch, 0))
+                sm = smooth_shape(m)
+                shape = offset_shape(sm, W["colin"] + COLIN_EXTRA.get(ch, 0))
+                # never thinner than the weight's stroke (keeps Light from breaking)
+                k = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (int(s * 0.85) | 1,) * 2)
+                shape |= cv2.dilate(skeletonize(sm).astype(np.uint8), k).astype(bool)
             else:
                 shape, iw = designed_shape(ch, w, strokes, opts, s), w
             base[ch] = (ink(shape, seed_for(ch), nib), iw, CAP)

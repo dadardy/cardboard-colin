@@ -24,9 +24,21 @@ same wobbly, re-inked edges.
 
 ## Make a sign
 
-The website has a sign maker: type your text, pick a weight, colours, alignment and page size
-(Letter, A4, Tabloid, portrait or landscape), then print it or download it as PDF, SVG, PNG or
-Word. PDF and SVG use outlined vector letters, so they work without the font installed.
+The website has a sign maker. You type straight onto a cardboard sign, then drag its edges or
+corners (mouse or touch) to make it any size from 2 to 48 inches. The words reflow and grow to fit,
+or you can set the text size yourself. Letter, A4, Tabloid, Square and Banner sizes are one-click
+snaps. Pick a weight, alignment and colours, then print it or download PDF, SVG, PNG or Word at
+the sign's size, or fitted onto Letter, A4 or Tabloid paper. PDF and SVG use outlined vector
+letters, so they work without the font installed.
+
+## How the letters are made
+
+Every glyph is inked by a simulated marker, the way Colin drew his sign: a round nib scribbles
+up and down while moving along each stroke. Each pass spans the stroke's height at that point, so
+stems get long passes, horizontal bars get many short ones and diagonals land in between. The
+spacing and reach of each pass vary a little (more on horizontals, with the occasional gap where
+the cardboard shows through). `scripts/marker.py` has the model; `specimen/photo-vs-font.png`
+compares it with Colin's original letters.
 
 ## Status
 

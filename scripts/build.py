@@ -25,7 +25,7 @@ from glyphdefs import UNICODES, ACCENTED, DIGITS
 
 ROOT = os.path.join(HERE, "..")
 FAMILY = "Cardboard Colin"
-VERSION = "1.100"
+VERSION = "1.200"
 COPYRIGHT = "Copyright 2026 Colin & Ryan"
 UPM = 1000
 ASC, DESC = 900, -250
